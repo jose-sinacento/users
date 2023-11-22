@@ -3,6 +3,7 @@ body {
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
+
 }
 
 h1 {
@@ -10,4 +11,38 @@ h1 {
   color: #333;
 }
 
+img {
+  width: 250px;
+  height: 250px;
+  
+}
+
+#listaUsuarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  border: solid 1px;
+  padding: 10px;
+  background-color: white;
+  height: fit-content;
+  flex-wrap: wrap
+  text-align: justify;
+};
+
+li img {
+  display: flex;
+
+}
+
+p {
+  padding: 20px;
+  
+};
 
