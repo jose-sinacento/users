@@ -47,15 +47,18 @@ console.log(listUsers);
 fetch("https://jsonplaceholder.typicode.com/users") 
 .then(res => {
     if(!res.ok) {
-        throw new Error('Error cargando los usuarios')
+        throw new Error('Error cargando los usuarios');
     }
-    return res.json()
+    
+    // res.ok = true
+    return res.json();
 }) 
 .then (data => {
     console.log(data)
     const usersModified = [];
+
     data.forEach(user => {
-        console.log(user)
+        console.log(user);
         const newUser = {
             ...user,
             age: randomAge(),
@@ -64,13 +67,13 @@ fetch("https://jsonplaceholder.typicode.com/users")
         }
         usersModified.push(newUser)
         console.log(usersModified);
-        
-    })
+    });
+    
     showUsers(usersModified);
 })
 
 function randomAge() {
-    return Math.floor(Math.random()*48)+18;
+    return Math.floor(Math.random() * (65 - 18)) + 18;
 }
 
 function showUsers(users) {
@@ -79,7 +82,7 @@ function showUsers(users) {
         const {name, age, username, img, phone, email, company, address} = user;
         const {name:companyName} = company;
         const {street, suite, city} = address;
-        listUsers.innerHTML += `
+        listUsers.innerHTML = listUsers.innerHTML + `
         <li>
             <p><strong>Nombre: </strong> ${name}</p>
             <p><strong>Edad: </strong> ${age}</p>
@@ -90,6 +93,5 @@ function showUsers(users) {
             <p><strong> Dirección: </strong> ${street}, ${suite}, ${city}</p>
             <img src="${img}" alt="${name}">
         </li>`
-
     });
 }
